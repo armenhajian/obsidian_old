@@ -1,0 +1,161 @@
+<%- include ../header %>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+    .ui-helper-hidden-accessible {
+        position: absolute !important;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px,1px,1px,1px);
+    }
+</style>
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+    $('#ui-datepicker-div').css('clip', 'auto');
+</script>
+
+<div class="eltd-content" style="margin-top: -96px">
+    <div class="eltd-content-inner">
+        <div class="eltd-title eltd-standard-type eltd-type-out- eltd-content-left-alignment eltd-animation-no"
+             style="height:286px;" data-height="286">
+            <div class="eltd-title-image"></div>
+            <div class="eltd-title-holder" style="height:190px;padding-top: 96px;">
+                <div class="eltd-container clearfix">
+                    <div class="eltd-container-inner">
+                        <div class="eltd-title-subtitle-holder" style="">
+                            <div class="eltd-title-subtitle-holder-inner">
+                                <h1 style="color:;background-color:;padding:4px 5px 7px 12px"
+                                    class="eltd-title-size-small">
+                                    <span><%= tour.name %></span>
+                                </h1>
+                                <div class="eltd-breadcrumbs-holder">
+                                    <div class="eltd-breadcrumbs">
+                                        <div class="eltd-breadcrumbs-inner"><a href="http://www.obsidianroad.com/">Obsidian
+                                                road</a><span class="eltd-delimiter">&nbsp;/&nbsp;</span><span
+                                                    class="eltd-current"><%= tour.name %></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="eltd-container">
+            <div class="eltd-container-inner clearfix">
+
+
+                <div itemscope="" itemtype="http://schema.org/Product" id="product-5260"
+                     class="post-5260 product type-product status-publish has-post-thumbnail product_cat-platforms product_tag-modern product_tag-new product_tag-style pa_people_count-shmbly first instock sale featured shipping-taxable purchasable product-type-simple">
+
+                    <div class="eltd-single-product-summary">
+                        <div class="summary entry-summary">
+
+                            <h2 itemprop="name" class="eltd-single-product-title"><%= tour.name %></h2>
+                            <div class="eltd-single-product-actions">
+                            </div>
+                            <div class="eltd-single-product-price" itemprop="offers" itemscope=""
+                                 itemtype="http://schema.org/Offer">
+
+                                <p class="price">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <span class="woocommerce-Price-currencySymbol"><%- currencySymbol %></span>
+                                            <%= tour.price %>
+                                        </span>
+                                </p>
+
+                                <meta itemprop="price" content="<%= tour.price %>">
+                                <meta itemprop="priceCurrency" content="<%= tour.currency %>">
+                                <link itemprop="availability" href="http://schema.org/InStock">
+
+                            </div>
+                            <div itemprop="description">
+                                <p><%= tour.description %></p>
+                                <agenda>
+                                    <%= tour.agenda %>
+                                </agenda>
+                            </div>
+
+
+                            <div class="quantity eltd-quantity-buttons clearfix">
+                                <input type="text" step="1" min="1" name="quantity" value="1" title="Qty"
+                                       class="input-text qty text eltd-quantity-input" size="4">
+                                <span class="quantity-control">
+                                    <span class="eltd-quantity-plus">
+                                        <span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-up "></span>		</span>
+                                    <span class="eltd-quantity-minus">
+                                        <span aria-hidden="true"
+                                              class="eltd-icon-font-elegant arrow_carrot-down "></span>		</span>
+                                </span>
+                            </div>
+                            <div>
+                                <!--<input type="text" class="span2" value="" id="dpd1">-->
+                                <!--<input type="text" class="span2" value="" id="dpd2">-->
+                                <p>From Date: <input type="text" id="datepicker"></p>
+                                <p>To Date: <input type="text" id="to-datepicker" disabled></p>
+                            </div>
+                            <div>Sum money: <span id="sum-money"></span></div>
+                            <input type="hidden" value="<%= tour.days %>" id="tour-days">
+                            <button type="submit" style="font-weight: 400"
+                                    class="eltd-btn eltd-btn-medium eltd-btn-solid eltd-btn-custom-hover-bg eltd-btn-custom-border-hover eltd-btn-custom-hover-color single_add_to_cart_button alt"
+                                    data-hover-bg-color="#333" data-hover-color="fff"
+                                    data-hover-border-color="#333"><span class="eltd-btn-text">Add to cart</span>
+                            </button>
+
+                        </div>
+                    </div><!-- .eltd-signle-product-summary -->
+                    <div class="tour-map-and-gallery">
+                        <ggl-map>
+                            <%- tour.map %>
+                        </ggl-map>
+                        <div class="tour-galler-container">
+                            <% tour.gallery.forEach(img=>{ %>
+                            <a class="tour-gallery" rel="gallery" href="/images/<%= img.filename %>">
+                                <img src="/images/<%= img.filename %>" alt="<%= img.originalname %>"/>
+                            </a>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <meta itemprop="url" content="http://www.obsidianroad.com/tour/<%= tour.slug %>/">
+
+                    <div class="well">
+                        <p>Date: <input type="text" id="datepicker"></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div> <!-- close div.content_inner -->
+</div>
+
+<script>
+//    var nowTemp = new Date();
+//    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+//
+//    var checkin = $('#dpd1').datepicker({
+//        onRender: function(date) {
+//            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+//        }
+//    }).on('changeDate', function(ev) {
+//        if (ev.date.valueOf() > checkout.date.valueOf()) {
+//            var newDate = new Date(ev.date)
+//            newDate.setDate(newDate.getDate() + 1);
+//            checkout.setValue(newDate);
+//        }
+//        checkin.hide();
+//        $('#dpd2')[0].focus();
+//    }).data('datepicker');
+//    var checkout = $('#dpd2').datepicker({
+//        onRender: function(date) {
+//            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+//        }
+//    }).on('changeDate', function(ev) {
+//        checkout.hide();
+//    }).data('datepicker');
+//    jQuery("a.tour-gallery").fancybox();
+</script>
+<%- include ../footer %>

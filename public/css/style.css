@@ -1,0 +1,22 @@
+include {
+    display: none;
+}
+
+.tour-gallery img {
+    max-width: 170px;
+}
+
+.tour-map-and-gallery {
+    float: right;
+}
+
+.tours-filter .widget {
+    display: inline-block;
+    max-width: 40%;
+    cursor:pointer;
+}
+
+.tours-filter .widget select {
+    height: 40px;
+    padding: 10px 22px;
+}
