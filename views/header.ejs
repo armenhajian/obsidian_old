@@ -96,13 +96,55 @@
     <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="all"/>
+    <% if(typeof headerStyle === 'undefined' || headerStyle !== 'white'){ %>
+    <style>
+        narrow, .eltd-main-menu > ul > li > a {
+            color: black !important;
+        }
+    </style>
+    <% } %>
+    <style>
+        .sticky ul > li > a {
+            color: black !important;
+        }
+
+        #quantity {
+            font-size: 15px;
+            color: #676767;
+            font-weight: 600;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body class="home page-template page-template-full-width page-template-full-width-php page page-id-7531 eltd-core-1.0 woly-ver-1.0 eltd-smooth-scroll  eltd-grid-1200 eltd-blog-installed eltd-main-style4 eltd-header-standard eltd-sticky-header-on-scroll-down-up eltd-default-mobile-header eltd-sticky-up-mobile-header eltd-menu-item-first-level-bg-color eltd-dropdown-default eltd-light-header eltd-header-style-on-scroll eltd-header-standard-disable-transparency wpb-js-composer js-comp-ver-4.12 vc_responsive">
 
 <div class="eltd-wrapper">
     <div class="eltd-wrapper-inner">
-
+        <div class="eltd-fullscreen-search-holder eltd-animate" id="search-animate">
+            <div class="eltd-fullscreen-search-close-container" id="search-closer">
+                <div class="eltd-search-close-holder">
+                    <a class="eltd-fullscreen-search-close" href="javascript:void(0)" style="top: 38px; left: 1210.19px;">
+                        <span aria-hidden="true" class="eltd-icon-font-elegant icon_close "></span>			</a>
+                </div>
+            </div>
+            <div class="eltd-fullscreen-search-table">
+                <div class="eltd-fullscreen-search-cell">
+                    <div class="eltd-fullscreen-search-inner">
+                        <form action="/tours" class="eltd-fullscreen-search-form" method="get">
+                            <div class="eltd-form-holder">
+                                <span class="eltd-search-label">Search</span>
+                                <div class="eltd-field-holder">
+                                    <input type="text" name="s" class="eltd-search-field" autocomplete="off">
+                                    <div class="eltd-line"></div>
+                                </div>
+                                <input type="submit" class="eltd-search-submit" value="U">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <header class="eltd-page-header">
             <div class="eltd-menu-area">
                 <div class="eltd-vertical-align-containers">
@@ -122,11 +164,49 @@
                     </div>
                     <div class="eltd-position-center">
 
-                        <% include navigation %>
+                        <% include navigation/normal %>
 
                     </div>
                     <div class="eltd-position-right">
                         <div class="eltd-position-right-inner">
+                            <div id="text-11" class="widget widget_text eltd-right-from-main-menu-widget">
+                                <div class="textwidget">
+                                    <div id="lang_sel1" class="lang_sel">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="lang_sel_sel icl-en">
+                                                    English
+                                                </a>
+                                                <ul>
+                                                    <li class="icl-fr">
+                                                        <a rel="alternate" hreflang="fr" href="#">
+                                                            French
+                                                        </a>
+                                                    </li>
+                                                    <li class="icl-de">
+                                                        <a rel="alternate" hreflang="de" href="#">
+                                                            German
+                                                        </a>
+                                                    </li>
+                                                    <li class="icl-it">
+                                                        <a rel="alternate" hreflang="it" href="#">
+                                                            Italian
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="eltd_search_opener-2"
+                                 class="widget widget_eltd_search_opener eltd-right-from-main-menu-widget"><a
+                                        data-icon-close-same-position="yes" class="eltd-search-opener"
+                                        href="javascript:void(0)">
+                                    <span aria-hidden="true" class="eltd-icon-font-elegant icon_search "></span> <span
+                                            class="eltd-search-icon-text">Search</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,39 +233,7 @@
                         <div class="eltd-position-center">
                             <div class="eltd-position-center-inner">
 
-                                <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
-                                    <ul id="menu-main-1" class="clearfix">
-                                        <li id="sticky-nav-menu-item-7534"
-                                            class="menu-item menu-item-type-custom menu-item-object-custom anchor-item  narrow">
-                                            <a href="#destinations" class=""><span class="item_outer"><span
-                                                            class="item_inner"><span class="menu_icon_wrapper"><i
-                                                                    class="menu_icon null fa"></i></span><span
-                                                                class="item_text">Destinations</span></span><span
-                                                            class="plus"></span></span></a></li>
-                                        <li id="sticky-nav-menu-item-7535"
-                                            class="menu-item menu-item-type-custom menu-item-object-custom anchor-item  narrow">
-                                            <a href="#trip" class=""><span class="item_outer"><span
-                                                            class="item_inner"><span class="menu_icon_wrapper"><i
-                                                                    class="menu_icon null fa"></i></span><span
-                                                                class="item_text">Your Trip</span></span><span
-                                                            class="plus"></span></span></a></li>
-                                        <li id="sticky-nav-menu-item-7536"
-                                            class="menu-item menu-item-type-custom menu-item-object-custom anchor-item  narrow">
-                                            <a href="#news" class=""><span class="item_outer"><span
-                                                            class="item_inner"><span class="menu_icon_wrapper"><i
-                                                                    class="menu_icon null fa"></i></span><span
-                                                                class="item_text">News</span></span><span
-                                                            class="plus"></span></span></a></li>
-                                        <li id="sticky-nav-menu-item-7562"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page  narrow"><a
-                                                    href="http://www.obsidianroad.com/tours/" class=""><span
-                                                        class="item_outer"><span class="item_inner"><span
-                                                                class="menu_icon_wrapper"><i
-                                                                    class="menu_icon blank fa"></i></span><span
-                                                                class="item_text">Tours</span></span><span
-                                                            class="plus"></span></span></a></li>
-                                    </ul>
-                                </nav>
+                                <% include navigation/sticky %>
 
                             </div>
                         </div>

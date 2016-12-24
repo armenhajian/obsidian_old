@@ -17,7 +17,11 @@ $(".tours-filter #cat").on('change', function () {
 $(".tours-filter #days").on('change', function () {
     filterItems()
 });
-
+$("#reset").on('click', function(){
+    $(".tours-filter #cat").val('-1');
+    $(".tours-filter #days").val('-1');
+    filterItems();
+});
 function filterItems() {
     $.ajax({
         url:'/tours/filter',
@@ -30,3 +34,11 @@ function filterItems() {
         $("#tours").html(data);
     })
 }
+$('#eltd_search_opener-2').on('click', function(){
+    $('#search-animate').addClass('animation');
+    $('#search-animate').removeClass('animation-close');
+});
+$('#search-closer').on('click', function(){
+    $('#search-animate').addClass('animation-close');
+    $('#search-animate').removeClass('animation');
+});

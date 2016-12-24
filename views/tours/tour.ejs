@@ -5,14 +5,29 @@
     .ui-helper-hidden-accessible {
         position: absolute !important;
         clip: rect(1px 1px 1px 1px);
-        clip: rect(1px,1px,1px,1px);
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+    #from-datepicker {
+        height: 40px;
+        width:230px;
+    }
+    #to-datepicker {
+        height: 40px;
+        width:230px;
+    }
+    .eltd-page-header {
+        background-color: white;
+    }
+    .summary {
+        width: 560px;
     }
 </style>
 <script>
-    $( function() {
-        $( "#datepicker" ).datepicker();
-    } );
-    $('#ui-datepicker-div').css('clip', 'auto');
+    $(function () {
+        $("#from-datepicker").datepicker({
+            dateFormat : "dd-mm-yy"
+        });
+    });
 </script>
 
 <div class="eltd-content" style="margin-top: -96px">
@@ -31,7 +46,7 @@
                                 </h1>
                                 <div class="eltd-breadcrumbs-holder">
                                     <div class="eltd-breadcrumbs">
-                                        <div class="eltd-breadcrumbs-inner"><a href="http://www.obsidianroad.com/">Obsidian
+                                        <div class="eltd-breadcrumbs-inner"><a href="/">Obsidian
                                                 road</a><span class="eltd-delimiter">&nbsp;/&nbsp;</span><span
                                                     class="eltd-current"><%= tour.name %></span></div>
                                     </div>
@@ -79,29 +94,39 @@
                             </div>
 
 
-                            <div class="quantity eltd-quantity-buttons clearfix">
+                            <div class="quantity eltd-quantity-buttons clearfix" style="position: relative">
                                 <input type="text" step="1" min="1" name="quantity" value="1" title="Qty"
-                                       class="input-text qty text eltd-quantity-input" size="4">
-                                <span class="quantity-control">
-                                    <span class="eltd-quantity-plus">
+                                       class="input-text qty text eltd-quantity-input" size="4" id="quantity"
+                                style="padding: 10px; border: 2px solid #ebebeb;">
+                                <span class="quantity-control" style="position: absolute; left: 52px; top: 0; display: block; height: 100%; border-left: 2px solid #ebebeb;">
+                                    <span class="eltd-quantity-plus" style="cursor:pointer; display: block; height: 50%; border-bottom: 1px solid #ebebeb;">
                                         <span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-up "></span>		</span>
-                                    <span class="eltd-quantity-minus">
+                                    <span class="eltd-quantity-minus" style="cursor:pointer; display: block; height: 50%; line-height: 0;">
                                         <span aria-hidden="true"
                                               class="eltd-icon-font-elegant arrow_carrot-down "></span>		</span>
                                 </span>
                             </div>
-                            <div>
-                                <!--<input type="text" class="span2" value="" id="dpd1">-->
-                                <!--<input type="text" class="span2" value="" id="dpd2">-->
-                                <p>From Date: <input type="text" id="datepicker"></p>
-                                <p>To Date: <input type="text" id="to-datepicker" disabled></p>
+                            <div style="margin-top: 10px;">
+                                <input type="text" id="from-datepicker"
+                                          placeholder="From Date"
+                                          class="wpcf7-form-control wpcf7-text"
+                                                     style="position: relative; z-index: 100000;">
+                                <input type="text" id="to-datepicker"
+                                          placeholder="To Date"
+                                          class="wpcf7-form-control wpcf7-text" disabled>
                             </div>
-                            <div>Sum money: <span id="sum-money"></span></div>
+                            <div class="sumMoney">Total: <%-currencySymbol%> <span id="sum-money"><%=tour.price%></span></div>
+                            <div style="margin-top: 10px;" >
+                                <label>Contact information</label>
+                                <textarea style="width: 475px;text-transform: none;padding: 10px 20px;height: 80px;"
+                                          placeholder="Name: John, Phone number: (012) 3456789,  E-mail: example@email.com" title="Write here your contact information. For example tel. number or e-mail" class="wpcf7-form-control wpcf7-text"></textarea>
+                            </div>
                             <input type="hidden" value="<%= tour.days %>" id="tour-days">
+                            <input type="hidden" value="<%= tour.price %>" id="tour-price">
                             <button type="submit" style="font-weight: 400"
                                     class="eltd-btn eltd-btn-medium eltd-btn-solid eltd-btn-custom-hover-bg eltd-btn-custom-border-hover eltd-btn-custom-hover-color single_add_to_cart_button alt"
                                     data-hover-bg-color="#333" data-hover-color="fff"
-                                    data-hover-border-color="#333"><span class="eltd-btn-text">Add to cart</span>
+                                    data-hover-border-color="#333"><span class="eltd-btn-text">Order</span>
                             </button>
 
                         </div>
@@ -119,11 +144,7 @@
                         </div>
                     </div>
 
-                    <meta itemprop="url" content="http://www.obsidianroad.com/tour/<%= tour.slug %>/">
-
-                    <div class="well">
-                        <p>Date: <input type="text" id="datepicker"></p>
-                    </div>
+                    <meta itemprop="url" content="http://www.obsidianroad.com/tours/<%= tour.slug %>/">
                 </div>
 
 
@@ -133,29 +154,24 @@
 </div>
 
 <script>
-//    var nowTemp = new Date();
-//    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-//
-//    var checkin = $('#dpd1').datepicker({
-//        onRender: function(date) {
-//            return date.valueOf() < now.valueOf() ? 'disabled' : '';
-//        }
-//    }).on('changeDate', function(ev) {
-//        if (ev.date.valueOf() > checkout.date.valueOf()) {
-//            var newDate = new Date(ev.date)
-//            newDate.setDate(newDate.getDate() + 1);
-//            checkout.setValue(newDate);
-//        }
-//        checkin.hide();
-//        $('#dpd2')[0].focus();
-//    }).data('datepicker');
-//    var checkout = $('#dpd2').datepicker({
-//        onRender: function(date) {
-//            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-//        }
-//    }).on('changeDate', function(ev) {
-//        checkout.hide();
-//    }).data('datepicker');
-//    jQuery("a.tour-gallery").fancybox();
+        $("#from-datepicker").on('change', function(){
+            var dat = new Date($(this).datepicker("getDate").valueOf());
+            dat = new Date(dat.setDate(dat.getDate() + $("#tour-days").val()*1));
+
+            var dd = dat.getDate();
+            var mm = dat.getMonth()+1; //January is 0!
+            var yyyy = dat.getFullYear();
+            if(dd<10){
+                dd='0'+dd;
+            }
+            if(mm<10){
+                mm='0'+mm;
+            }
+            $("#to-datepicker").val(dd+'-'+mm+'-'+yyyy);
+        })
+        $("#quantity").on('change', function () {
+            $("#sum-money").html($("#tour-price").val()*$(this).val())
+        })
+        jQuery("a.tour-gallery").fancybox();
 </script>
 <%- include ../footer %>
