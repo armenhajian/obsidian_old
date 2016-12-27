@@ -9,20 +9,23 @@ router.get('/', function (req, res, next) {
             req.db.collection('categories').find({}, (err, categories) => {
                 try {
                     const days = [];
-                    const filteredProducts = [];
+                    let filteredProducts = null;
                     products.map(product => {
                         if (days.indexOf(product.days) < 0) {
                             days.push(product.days)
                         }
                         if(req.query && req.query.s && req.query.s.length>0) {
                                 if(product.name.toLowerCase().indexOf(req.query.s.toLowerCase()) > -1) {
+                                    if(!filteredProducts) {
+                                        filteredProducts = [];
+                                    }
                                     filteredProducts.push(product);
                                 }
                         }
                     });
 
                     res.render('tours/index', {
-                        tours: filteredProducts.length > 0 ? filteredProducts : products,
+                        tours: filteredProducts ? filteredProducts : products,
                         categories: categories,
                         days: days,
                         currencySymbol: '&pound;'

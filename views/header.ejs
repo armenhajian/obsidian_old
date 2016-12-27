@@ -10,7 +10,7 @@
 
     <title>Obsidian road &#8211; Just another WordPress site</title>
     <meta name='robots' content='noindex,follow'/>
-    <link rel='dns-prefetch' href='//maps.googleapis.com'/>
+    <!--<link rel='dns-prefetch' href='//maps.googleapis.com'/>-->
     <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
     <link rel='dns-prefetch' href='//s.w.org'/>
     <link rel="alternate" type="application/rss+xml" title="Obsidian road &raquo; Feed"
@@ -99,6 +99,12 @@
     <% if(typeof headerStyle === 'undefined' || headerStyle !== 'white'){ %>
     <style>
         narrow, .eltd-main-menu > ul > li > a {
+            color: black !important;
+        }
+        .eltd-position-right span {
+            color: black !important;
+        }
+        .eltd-position-right ul li a {
             color: black !important;
         }
     </style>

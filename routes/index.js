@@ -63,15 +63,15 @@ router.get('/gallery/videos', function (req, res) {
 });
 
 router.get('/contacts', function (req, res) {
-
     res.render('contacts', {})
 });
 router.get('/about', function (req, res) {
-
     res.render('about', {})
 });
 router.get('/individual-tour', function (req, res) {
-
     res.render('individual-tour', {})
+});
+router.get('/explore-armenia', function (req, res) {
+    res.render('explore-armenia', {})
 });
 module.exports = router;

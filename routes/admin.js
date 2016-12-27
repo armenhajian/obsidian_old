@@ -21,11 +21,19 @@ router.get('/', (req, res, next) => {
 
         req.db.collection('categories').find({}, (err, categories) => {
             req.db.collection('sliders').find({}, (err, sliders)=>{
-                res.render('admin', {
-                    title: 'Tours',
-                    products: products,
-                    categories: categories,
-                    sliders: sliders,
+                fs.readFile(appRoot+'/public/language-list.json', 'utf8', (err, data) => {
+                    var v = JSON.parse(data);
+                    Object.keys(v).map(d=>{
+                        req.db.collection('languages').save(v[d]);
+                    });
+
+                    res.render('admin', {
+                        title: 'Tours',
+                        products: products,
+                        categories: categories,
+                        sliders: sliders,
+                        languages:JSON.parse(data)
+                    });
                 });
             })
         });
@@ -121,7 +129,7 @@ router.delete('/slider', (req, res) => {
     req.db.collection('sliders').findOne({_id: mongojs.ObjectId(req.body._id)}, (err, slider) => {
         fs.unlink(slider.image.path);
         req.db.collection('sliders').remove({_id: mongojs.ObjectId(req.body._id)}, (err, data) => {
-            res.end();
+            res.redirect('/admin#sliders');
         })
     })
 
