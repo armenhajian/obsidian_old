@@ -55,7 +55,9 @@ router.post('/product', cpUpload, (req, res) => {
                     newGallery.splice(idx, 1);
                 }
             });
-            fs.unlink(img.path);
+            if(fs.existsSync(img.path)) {
+                fs.unlink(img.path);
+            }
         });
         delete data._id;
         delete data.old_gallery;
@@ -127,7 +129,10 @@ router.post('/slider', cpUpload, (req, res)=>{
 });
 router.delete('/slider', (req, res) => {
     req.db.collection('sliders').findOne({_id: mongojs.ObjectId(req.body._id)}, (err, slider) => {
-        fs.unlink(slider.image.path);
+        if(fs.existsSync(slider.image.path)) {
+            fs.unlink(slider.image.path);
+        }
+
         req.db.collection('sliders').remove({_id: mongojs.ObjectId(req.body._id)}, (err, data) => {
             res.redirect('/admin#sliders');
         })
