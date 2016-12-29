@@ -1,7 +1,9 @@
 7. facebook reviews widget api after "build your tour"----
 3.5 language --------------
-5. agenda from admin, templatot ban mtacel ----------
+5. agenda from admin, pdf link ----------
 11.  about-ic 4 keter@ hanel
+Individual tour
+submit = Show on map
 
 
 1. menuner@ dnel ---> tours, gallery, about, contact ++++++
@@ -16,5 +18,3 @@
 9. gallereayum photos and videos bajin, vimeo.com++++++
 10. adminic sectionner@ edit anel-+-+-+-+-+-+
 
-Individual tour
-submit = Show on map

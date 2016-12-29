@@ -1,5 +1,9 @@
 <ul class="products eltd-default-type ">
-
+    <%if(tours.length ===0 ){%>
+    <div>
+        <span>No tours found</span>
+    </div>
+    <%}%>
     <% tours.forEach(tour=>{ %>
     <li class="post-5017 product type-product status-publish has-post-thumbnail product_cat-trends product_tag-fashionista product_tag-style first instock featured downloadable shipping-taxable purchasable product-type-simple">
         <div class="eltd-product-inner">

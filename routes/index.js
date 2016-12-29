@@ -10,7 +10,7 @@ var api500px = new API500px("9u3RsnM8YPd7SHfCFwRsVbB0dlggODTu0rSCGFWy");
 
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/:locale/', function (req, res, next) {
     req.db.collection('sliders').find({}, (err, sliders) => {
         req.db.collection('products').find({favorite: 'on'}, (err, products) => {
             res.render('index', {
@@ -23,10 +23,10 @@ router.get('/', function (req, res, next) {
     })
 
 });
-router.get('/gallery', function (req, res) {
+router.get('/:locale/gallery', function (req, res) {
     res.redirect('/gallery/photos');
 });
-router.get('/gallery/photos', function (req, res) {
+router.get('/:locale/gallery/photos', function (req, res) {
     api500px.photos.getByUsername('toshstepanyan', {
         sort: 'created_at',
         image_size: 21
@@ -42,7 +42,7 @@ router.get('/gallery/photos', function (req, res) {
         })
     });
 });
-router.get('/gallery/videos', function (req, res) {
+router.get('/:locale/gallery/videos', function (req, res) {
 
     vimdeoLib.request(/*options*/{
         // This is the path for the videos contained within the staff picks channels
@@ -62,16 +62,16 @@ router.get('/gallery/videos', function (req, res) {
     });
 });
 
-router.get('/contacts', function (req, res) {
+router.get('/:locale/contacts', function (req, res) {
     res.render('contacts', {})
 });
-router.get('/about', function (req, res) {
+router.get('/:locale/about', function (req, res) {
     res.render('about', {})
 });
-router.get('/individual-tour', function (req, res) {
+router.get('/:locale/individual-tour', function (req, res) {
     res.render('individual-tour', {})
 });
-router.get('/explore-armenia', function (req, res) {
+router.get('/:locale/explore-armenia', function (req, res) {
     res.render('explore-armenia', {})
 });
 module.exports = router;

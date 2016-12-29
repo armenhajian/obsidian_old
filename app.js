@@ -4,10 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var i18nService = require('./bin/i18n/i18n-service.js');
 var mongojs = require('mongojs');
-var hosting_config = JSON.parse(process.env.APP_CONFIG);
+// var hosting_config = JSON.parse(process.env.APP_CONFIG);
 var mongoPassword = "hjgJH675&%^%^%fgDT4";
-var db = mongojs("mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" +hosting_config.mongo.hostString);
+var db = mongojs('obsidian');
+//evennode: "mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" +hosting_config.mongo.hostString
 //heroku : mongodb://heroku_mtgr2l60:o8330a89nkct2o96f99jspsks0@ds145208.mlab.com:45208/heroku_mtgr2l60
 
 var index = require('./routes/index');
@@ -15,7 +17,6 @@ var tours = require('./routes/tours');
 var admin = require('./routes/admin');
 
 var app = express();
-
 global.appRoot = path.resolve(__dirname);
 
 // view engine setup
@@ -35,9 +36,25 @@ app.use(function(req, res, next) {
     next();
 });
 
+function languageMiddleware(routes) {
+    routes.map(route=>{
+        app.get(route, (req, res) => res.redirect(`/${i18nService.getDefaultLanguageCode(req)+route}`));
+    })
+}
+languageMiddleware([
+    '/',
+    '/tours',
+    '/admin',
+    'explore-armenia',
+    '/gallery',
+    '/gallery/photos',
+    '/gallery/videos',
+    '/about',
+    '/contacts'
+]);
 app.use('/', index);
-app.use('/tours', tours);
-app.use('/admin', admin);
+app.use('/:locale/tours', tours);
+app.use('/:locale/admin', admin);
 
 
 // catch 404 and forward to error handler

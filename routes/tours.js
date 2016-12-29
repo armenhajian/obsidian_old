@@ -15,17 +15,16 @@ router.get('/', function (req, res, next) {
                             days.push(product.days)
                         }
                         if(req.query && req.query.s && req.query.s.length>0) {
-                                if(product.name.toLowerCase().indexOf(req.query.s.toLowerCase()) > -1) {
-                                    if(!filteredProducts) {
-                                        filteredProducts = [];
-                                    }
-                                    filteredProducts.push(product);
-                                }
+                            if(!filteredProducts) {
+                                filteredProducts = [];
+                            }
+                            if(product.name.toLowerCase().indexOf(req.query.s.toLowerCase()) > -1) {
+                                filteredProducts.push(product);
+                            }
                         }
                     });
-
                     res.render('tours/index', {
-                        tours: filteredProducts ? filteredProducts : products,
+                        tours: filteredProducts !== null ? filteredProducts : products,
                         categories: categories,
                         days: days,
                         currencySymbol: '&pound;'

@@ -37,6 +37,8 @@ function filterItems() {
 $('#eltd_search_opener-2').on('click', function(){
     $('#search-animate').addClass('animation');
     $('#search-animate').removeClass('animation-close');
+    setTimeout(function() { $('input[name="s"]').focus() }, 300);
+    // $('input[name="s"]').focus()
 });
 $('#search-closer').on('click', function(){
     $('#search-animate').addClass('animation-close');
