@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://heroku_mtgr2l60:o8330a89nkct2o96f99jspsks0@ds145208.mlab.com:45208/heroku_mtgr2l60');
+var hosting_config = JSON.parse(process.env.APP_CONFIG);
+var mongoPassword = "hjgJH675&%^%^%fgDT4";
+var db = mongojs("mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" +hosting_config.mongo.hostString);
 //heroku : mongodb://heroku_mtgr2l60:o8330a89nkct2o96f99jspsks0@ds145208.mlab.com:45208/heroku_mtgr2l60
 
 var index = require('./routes/index');
