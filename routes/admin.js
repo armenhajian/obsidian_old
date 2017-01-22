@@ -20,19 +20,18 @@ router.get('/', (req, res, next) => {
     req.db.collection('products').find({}, (err, products) => {
 
         req.db.collection('categories').find({}, (err, categories) => {
-            req.db.collection('sliders').find({}, (err, sliders)=>{
-                fs.readFile(appRoot+'/public/language-list.json', 'utf8', (err, data) => {
-                    var v = JSON.parse(data);
-                    Object.keys(v).map(d=>{
-                        req.db.collection('languages').save(v[d]);
-                    });
-
-                    res.render('admin', {
-                        title: 'Tours',
-                        products: products,
-                        categories: categories,
-                        sliders: sliders,
-                        languages:JSON.parse(data)
+            req.db.collection('sliders').find({}, (err, sliders) => {
+                req.db.collection('languages').find({}, (err, languages) => {
+                    fs.readFile(appRoot  + '/i18n/'+req.cookies.lang+'.json', (err, data)=>{
+                        res.render('admin', {
+                            title: 'Tours',
+                            products: products,
+                            categories: categories,
+                            sliders: sliders,
+                            languages: languages,
+                            translations: data,
+                            selectedLanguage:req.cookies.lang
+                        });
                     });
                 });
             })
@@ -55,7 +54,7 @@ router.post('/product', cpUpload, (req, res) => {
                     newGallery.splice(idx, 1);
                 }
             });
-            if(fs.existsSync(img.path)) {
+            if (fs.existsSync(img.path)) {
                 fs.unlink(img.path);
             }
         });
@@ -112,24 +111,24 @@ router.delete('/category', (req, res) => {
     })
 });
 
-router.get('/slider', (req, res)=>{
-    req.db.collection('sliders').find({}, (err, sliders)=>{
+router.get('/slider', (req, res) => {
+    req.db.collection('sliders').find({}, (err, sliders) => {
         res.render('admin', {
             title: 'Sliders',
             sliders: sliders,
         });
     })
 });
-router.post('/slider', cpUpload, (req, res)=>{
+router.post('/slider', cpUpload, (req, res) => {
     const data = req.body;
     data.image = req.files['avatar'][0];
-    req.db.collection('sliders').save(data, ()=>{
+    req.db.collection('sliders').save(data, () => {
         res.redirect('/admin#sliders');
     })
 });
 router.delete('/slider', (req, res) => {
     req.db.collection('sliders').findOne({_id: mongojs.ObjectId(req.body._id)}, (err, slider) => {
-        if(fs.existsSync(slider.image.path)) {
+        if (fs.existsSync(slider.image.path)) {
             fs.unlink(slider.image.path);
         }
 
@@ -140,4 +139,34 @@ router.delete('/slider', (req, res) => {
 
 });
 
+router.post('/languages', (req, res) => {
+    // console.log('sdfsdfsdf ', JSON.parse(req.body.data));
+    var data = JSON.parse(req.body.data).map(id => {
+        return mongojs.ObjectId(id)
+    });
+    req.db.collection('languages').update({_id: {$nin: data}},
+        {$set: {checked: false}},
+        {multi:true});
+    req.db.collection('languages').update({_id: {$in: data}},
+        {$set: {checked: true}},
+        {multi:true});
+
+    res.redirect('/admin#languages');
+
+});
+router.get('/translations', (req, res)=>{
+    fs.readFile(appRoot  + '/i18n/'+req.query.lang+'.json', (err, data)=>{
+        if(err) {
+            data = "";
+        }
+        res.send(data);
+    });
+});
+router.post('/translations', (req, res) => {
+    console.log(req.body);
+    fs.writeFile(appRoot  + '/i18n/'+req.body.lang+'.json', req.body.data, (err)=>{
+        console.log(err);
+        res.redirect('/admin#translations');
+    })
+});
 module.exports = router;

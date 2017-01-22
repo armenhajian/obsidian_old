@@ -21,21 +21,24 @@
 </div>
 
 <div id="add-product-dialog" class="modal fade" tabindex="-1">
-    <select>
-    </select>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
                 <form class="form-horizontal" name="addProduct" action="/admin/product" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <legend>Add Tour</legend>
+                        <%languages.forEach(language=>{%>
+                        <%if(language.checked === true){%>
                         <div class="form-group">
-                            <label for="name" class="col-md-2 control-label">Name</label>
+                            <label for="name" class="col-md-2 control-label">Name in <%=language.name%></label>
 
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Tour name">
+
+                                <input type="text" class="form-control" id="name_<%=language.name%>" name="name_<%=language.name%>" placeholder="Tour name in <%=language.name%>">
                             </div>
                         </div>
+                        <%}%>
+                        <%})%>
                         <div class="form-group">
                             <label for="slug" class="col-md-2 control-label">Slug</label>
 
@@ -95,13 +98,18 @@
                             </div>
                             <div id="gallery"></div>
                         </div>
+                        <%languages.forEach(language=>{%>
+                        <%if(language.checked === true){%>
                         <div class="form-group">
-                            <label for="description" class="col-md-2 control-label">Description</label>
+                            <label for="description" class="col-md-2 control-label">Description in <%=language.name%></label>
 
                             <div class="col-md-10">
-                                <textarea class="form-control" name="description" rows="3" id="description"></textarea>
+                                <textarea placeholder="Description in <%=language.name%>" class="form-control" name="description_<%=language.name%>" rows="3" id="description_<%=language.name%>"></textarea>
                             </div>
-
+                        </div>
+                        <%}%>
+                        <%})%>
+                        <div class="form-group">
                             <label for="map" class="col-md-2 control-label">Map</label>
 
                             <div class="col-md-10">
