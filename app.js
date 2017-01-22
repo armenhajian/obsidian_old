@@ -8,9 +8,9 @@ var i18nService = require('./bin/i18n/i18n-service.js');
 var mongojs = require('mongojs');
 var i18n = require("i18n");
 var fs = require('fs');
-// var hosting_config = JSON.parse(process.env.APP_CONFIG);
+var hosting_config = JSON.parse(process.env.APP_CONFIG);
 var mongoPassword = "hjgJH675&%^%^%fgDT4";
-var db = mongojs('obsidian');
+var db = mongojs("mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" +hosting_config.mongo.hostString);
 //evennode: "mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" +hosting_config.mongo.hostString
 //heroku : mongodb://heroku_mtgr2l60:o8330a89nkct2o96f99jspsks0@ds145208.mlab.com:45208/heroku_mtgr2l60
 
