@@ -8,11 +8,19 @@ var i18nService = require('./bin/i18n/i18n-service.js');
 var mongojs = require('mongojs');
 var i18n = require("i18n");
 var fs = require('fs');
-var hosting_config = JSON.parse(process.env.APP_CONFIG);
-var mongoPassword = "hjgJH675&%^%^%fgDT4";
-var db = mongojs("mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" +hosting_config.mongo.hostString);
+
 //evennode: "mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" +hosting_config.mongo.hostString
 //heroku : mongodb://heroku_mtgr2l60:o8330a89nkct2o96f99jspsks0@ds145208.mlab.com:45208/heroku_mtgr2l60
+
+if (process.env.APP_CONFIG) {
+    //prod:
+    var hosting_config = JSON.parse(process.env.APP_CONFIG);
+    var mongoPassword = "hjgJH675&%^%^%fgDT4";
+    var db = mongojs("mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" + hosting_config.mongo.hostString);
+} else {
+    //local:
+    var db = mongojs('obsidian');
+}
 
 var index = require('./routes/index');
 var tours = require('./routes/tours');
@@ -33,29 +41,25 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     req.db = db;
     req.cookies.lang = req.cookies.lang ? req.cookies.lang : 'English';
-    next();
+    req.db.collection('languages').find({checked: true}, (err, languages) => {
+        req._languages = languages;
+        next();
+    });
 });
 
 i18n.configure({
-    locales: fs.readdirSync(__dirname + '/i18n').map(filename=>{
+    locales: fs.readdirSync(__dirname + '/i18n').map(filename => {
         return filename.split('.json')[0];
     }),
     directory: __dirname + '/i18n',
     cookie: 'lang',
-    autoReload:true
+    autoReload: true
     // updateFiles:false
 });
 app.use(i18n.init);
-
-// app.use(co.wrap(function* (req, res, next) {
-//     res.languages = yield req.db.collection('languages').find({checked:true});
-//     console.log(res.languages)
-//     next();
-// }));
-
 
 // app.use((req, res, next) =>{
 //     i18n({

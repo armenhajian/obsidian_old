@@ -27,7 +27,8 @@ router.get('/', function (req, res, next) {
                         tours: filteredProducts !== null ? filteredProducts : products,
                         categories: categories,
                         days: days,
-                        currencySymbol: '&pound;'
+                        currencySymbol: '&pound;',
+                        languages: req._languages
                     });
                 } catch (e) {
                     console.log('error----', e)
@@ -55,7 +56,8 @@ router.get('/filter', function (req, res, next) {
 
             res.end(res.render('tours/tours', {
                 tours: products,
-                currencySymbol: '&pound;'
+                currencySymbol: '&pound;',
+                languages: req._languages
             }));
 
         } catch (e) {
@@ -73,7 +75,8 @@ router.get('/:tour', function (req, res, next) {
             res.render('tours/tour', {
                 tour: product[0],
                 currency: 'GBP',
-                currencySymbol: '&pound;'
+                currencySymbol: '&pound;',
+                languages: req._languages
             });
         } catch (e) {
             console.log('error----', e)

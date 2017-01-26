@@ -13,15 +13,13 @@ var api500px = new API500px("9u3RsnM8YPd7SHfCFwRsVbB0dlggODTu0rSCGFWy");
 router.get('/', function (req, res, next) {
     req.db.collection('sliders').find({}, (err, sliders) => {
         req.db.collection('products').find({favorite: 'on'}, (err, products) => {
-            req.db.collection('languages').find({checked: true}, (err, languages) => {
-                res.render('index', {
-                    sliders: sliders,
-                    favoriteTours: products,
-                    currencySymbol: '&pound;',
-                    headerStyle: 'white',
-                    lang: req.lang,
-                    languages:languages
-                });
+            res.render('index', {
+                sliders: sliders,
+                favoriteTours: products,
+                currencySymbol: '&pound;',
+                headerStyle: 'white',
+                lang: req.cookies.lang,
+                languages: req._languages
             });
         })
     })
@@ -42,7 +40,8 @@ router.get('/gallery/photos', function (req, res) {
 
         res.render('gallery/index', {
             photos: results.photos,
-            videos:[]
+            videos:[],
+            languages: req._languages
         })
     });
 });
@@ -60,7 +59,8 @@ router.get('/gallery/videos', function (req, res) {
 
         res.render('gallery/index', {
             videos: body.data,
-            photos:[]
+            photos:[],
+            languages: req._languages
         })
 
     });
