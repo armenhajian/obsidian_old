@@ -1,5 +1,4 @@
 7. facebook reviews widget api after "build your tour"----
-3.5 language --------------
 5. agenda from admin, pdf link ----------
 11.  about-ic 4 keter@ hanel
 Individual tour
@@ -16,5 +15,5 @@ submit = Show on map
 
 8. gallereayum 500px.com-ic photoner+++++++
 9. gallereayum photos and videos bajin, vimeo.com++++++
-10. adminic sectionner@ edit anel-+-+-+-+-+-+
-
+10. adminic sectionner@ edit anel++++++++++
+3.5 language +++++++++++

@@ -43,9 +43,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     req.db = db;
-    req.cookies.lang = req.cookies.lang ? req.cookies.lang : 'English';
     req.db.collection('languages').find({checked: true}, (err, languages) => {
-        req._languages = languages;
+        req._languages = languages.length > 0 ? languages : [{name:'English', checked: true}];
+        if(req._languages.indexOf(req.cookies.lang) < 0) {
+            req.cookies.lang = req._languages[0].name;
+            res.cookie('lang',req.cookies.lang, { maxAge: 900000});
+        }
+        console.log(req.cookies);
         next();
     });
 });

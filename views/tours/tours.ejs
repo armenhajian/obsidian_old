@@ -47,7 +47,7 @@
                                     class="woocommerce-Price-currencySymbol"><%- currencySymbol %></span><%= tour.price %></span></span>
                 </div>
                 <p class="eltd-single-product-subtitle">
-                    <%= tour.description.slice(0, 50) %></p>
+                    <%= tour['description_'+selectedLanguage].slice(0, 50) %></p>
             </div>
     </li>
     <% }) %>

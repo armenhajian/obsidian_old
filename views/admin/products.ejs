@@ -7,7 +7,7 @@
         <div class="row-content">
             <h4 class="list-group-item-heading"><%=p.name || ''%></h4>
 
-            <p class="list-group-item-text"><%=p.description.slice(0,50) ||''%></p>
+            <p class="list-group-item-text"><%=p['description_'+selectedLanguage].slice(0,50) ||''%></p>
         </div>
     </div>
     <div class="list-group-separator"></div>

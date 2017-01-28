@@ -67,15 +67,23 @@ router.get('/gallery/videos', function (req, res) {
 });
 
 router.get('/contacts', function (req, res) {
-    res.render('contacts', {})
+    res.render('contacts', {
+        languages: req._languages
+    })
 });
 router.get('/about', function (req, res) {
-    res.render('about', {})
+    res.render('about', {
+        languages: req._languages
+    })
 });
 router.get('/individual-tour', function (req, res) {
-    res.render('individual-tour', {})
+    res.render('individual-tour', {
+        languages: req._languages
+    })
 });
 router.get('/explore-armenia', function (req, res) {
-    res.render('explore-armenia', {})
+    res.render('explore-armenia', {
+        languages: req._languages
+    })
 });
 module.exports = router;

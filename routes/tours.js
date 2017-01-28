@@ -18,16 +18,18 @@ router.get('/', function (req, res, next) {
                             if(!filteredProducts) {
                                 filteredProducts = [];
                             }
-                            if(product.name.toLowerCase().indexOf(req.query.s.toLowerCase()) > -1) {
+                            if(product['name_'+req.cookies.lang].toLowerCase().indexOf(req.query.s.toLowerCase()) > -1) {
                                 filteredProducts.push(product);
                             }
                         }
                     });
+                    console.log(filteredProducts);
                     res.render('tours/index', {
                         tours: filteredProducts !== null ? filteredProducts : products,
                         categories: categories,
                         days: days,
                         currencySymbol: '&pound;',
+                        selectedLanguage:req.cookies.lang,
                         languages: req._languages
                     });
                 } catch (e) {
@@ -45,18 +47,18 @@ router.get('/', function (req, res, next) {
 router.get('/filter', function (req, res, next) {
 
     const filter = {};
-    if(req.query.days > -1) {
+    if(req.query.days != -1) {
         filter.days = req.query.days;
     }
-    if(req.query.categories > -1) {
-        filter.categories = req.query.categories;
+    if(req.query.category != -1) {
+        filter.category = req.query.category;
     }
     req.db.collection('products').find(filter, (err, products) => {
         try {
-
             res.end(res.render('tours/tours', {
                 tours: products,
                 currencySymbol: '&pound;',
+                selectedLanguage:req.cookies.lang,
                 languages: req._languages
             }));
 
@@ -76,6 +78,7 @@ router.get('/:tour', function (req, res, next) {
                 tour: product[0],
                 currency: 'GBP',
                 currencySymbol: '&pound;',
+                selectedLanguage:req.cookies.lang,
                 languages: req._languages
             });
         } catch (e) {

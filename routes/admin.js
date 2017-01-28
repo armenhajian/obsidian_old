@@ -22,6 +22,12 @@ router.get('/', (req, res, next) => {
         req.db.collection('categories').find({}, (err, categories) => {
             req.db.collection('sliders').find({}, (err, sliders) => {
                 req.db.collection('languages').find({}, (err, languages) => {
+                    if(languages.length === 0) {
+                        languages.push({
+                            checked: true,
+                            name: 'English'
+                        });
+                    }
                     fs.readFile(appRoot  + '/i18n/'+req.cookies.lang+'.json', (err, data)=>{
                         res.render('admin', {
                             title: 'Tours',

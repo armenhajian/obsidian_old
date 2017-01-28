@@ -8,6 +8,7 @@ include {
 
 .tour-map-and-gallery {
     float: right;
+    width: 53%;
 }
 
 .tours-filter {
@@ -86,4 +87,8 @@ include {
 }
 #search-animate {
     visibility: hidden;
+}
+.eltd-single-product-summary {
+    padding: 0;
+    width:45%;
 }
