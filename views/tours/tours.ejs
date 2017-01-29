@@ -1,7 +1,7 @@
 <ul class="products eltd-default-type ">
     <%if(tours.length ===0 ){%>
     <div>
-        <span>No tours found</span>
+        <span><%=__('No tours found')%></span>
     </div>
     <%}%>
     <% tours.forEach(tour=>{ %>
@@ -21,7 +21,7 @@
                        data-hover-bg-color="#fff"
                        data-hover-border-color="#fff"
                        rel="nofollow"><span
-                                class="eltd-btn-text">View Tour</span></a>
+                                class="eltd-btn-text"><%=__('View Tour')%></span></a>
                 </div>
                 <img width="300" height="300"
                      src="/images/<%= tour.avatar.filename %>"
@@ -40,7 +40,7 @@
 
                 <div class="eltd-product-title-holder">
                     <h4 class="eltd-product-list-product-title">
-                        <a href="/tours/<%= tour.slug %>"><%= tour.name %></a>
+                        <a href="/tours/<%= tour.slug %>"><%= tour['name_'+selectedLanguage] %></a>
                     </h4>
                     <span class="price"><span
                                 class="woocommerce-Price-amount amount"><span

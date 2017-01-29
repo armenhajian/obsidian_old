@@ -6,8 +6,8 @@
             <i class="material-icons">folder</i>
         </div>
         <div class="row-content">
-            <div class="least-content category-remove" data-value="<%=category.name%>">Remove</div>
-            <h4 class="list-group-item-heading"><%=category.name%></h4>
+            <div class="least-content category-remove" data-value="<%=category['name_'+selectedLanguage]%>">Remove</div>
+            <h4 class="list-group-item-heading"><%=category['name_'+selectedLanguage]%></h4>
         </div>
     </div>
     <div class="list-group-separator"></div>
@@ -28,13 +28,16 @@
                 <form class="form-horizontal" name="addCategory" action="/admin/category" method="post">
                     <fieldset>
                         <legend>Add category</legend>
+                        <% languages.forEach(language=>{ %>
+                        <% if(language.checked === true){ %>
                         <div class="form-group">
-                            <label for="name" class="col-md-2 control-label">Name</label>
-
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Category name">
+                                <input type="text" class="form-control" id="name" name="name_<%= language.name %>"
+                                       placeholder="Category name in <%= language.name %>">
                             </div>
                         </div>
+                        <% } %>
+                        <% }) %>
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-2">
                                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add-category-dialog">Cancel</button>

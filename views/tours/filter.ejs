@@ -7,7 +7,7 @@
             <select name='cat' id='cat' class='postform'>
                 <option value='-1'>Select Category</option>
                 <% categories.forEach(category=>{ %>
-                <option class="level-0" value="<%= category._id %>"><%= category.name %></option>
+                <option class="level-0" value="<%= category._id %>"><%= category['name_'+selectedLanguage] %></option>
                 <% }) %>
             </select>
         </div>

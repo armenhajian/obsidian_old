@@ -42,13 +42,13 @@
                             <div class="eltd-title-subtitle-holder-inner">
                                 <h1 style="color:;background-color:;padding:4px 5px 7px 12px"
                                     class="eltd-title-size-small">
-                                    <span><%= tour.name %></span>
+                                    <span><%= tour['name_'+selectedLanguage] %></span>
                                 </h1>
                                 <div class="eltd-breadcrumbs-holder">
                                     <div class="eltd-breadcrumbs">
                                         <div class="eltd-breadcrumbs-inner"><a href="/">Obsidian
                                                 road</a><span class="eltd-delimiter">&nbsp;/&nbsp;</span><span
-                                                    class="eltd-current"><%= tour.name %></span></div>
+                                                    class="eltd-current"><%= tour['name_'+selectedLanguage]%></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                     <div class="eltd-single-product-summary">
                         <div class="summary entry-summary">
 
-                            <h2 itemprop="name" class="eltd-single-product-title"><%= tour.name %></h2>
+                            <h2 itemprop="name" class="eltd-single-product-title"><%= tour['name_'+selectedLanguage]%></h2>
                             <div class="eltd-single-product-actions">
                             </div>
                             <div class="eltd-single-product-price" itemprop="offers" itemscope=""
@@ -83,14 +83,15 @@
 
                                 <meta itemprop="price" content="<%= tour.price %>">
                                 <meta itemprop="priceCurrency" content="<%= tour.currency %>">
-                                <link itemprop="availability" href="http://schema.org/InStock">
 
                             </div>
                             <div itemprop="description">
-                                <p><%= tour.description %></p>
+                                <p><%= tour['description_'+selectedLanguage]%></p>
+                                <%if(tour.agenda){%>
                                 <agenda>
-                                    <%= tour.agenda %>
+                                    <a href="/agenda/<%= tour.slug %>">View agenda in pdf</a>
                                 </agenda>
+                                <%}%>
                             </div>
 
 
@@ -108,16 +109,16 @@
                             </div>
                             <div style="margin-top: 10px;">
                                 <input type="text" id="from-datepicker"
-                                          placeholder="From Date"
+                                          placeholder="<%=__('From Date')%>"
                                           class="wpcf7-form-control wpcf7-text"
                                                      style="position: relative; z-index: 100000;">
                                 <input type="text" id="to-datepicker"
-                                          placeholder="To Date"
+                                          placeholder="<%=__('To Date')%>"
                                           class="wpcf7-form-control wpcf7-text" disabled>
                             </div>
                             <div class="sumMoney">Total: <%-currencySymbol%> <span id="sum-money"><%=tour.price%></span></div>
                             <div style="margin-top: 10px;" >
-                                <label>Contact information</label>
+                                <label><%=__('Contact information')%></label>
                                 <textarea style="width: 475px;text-transform: none;padding: 10px 20px;height: 80px;"
                                           placeholder="Name: John, Phone number: (012) 3456789,  E-mail: example@email.com" title="Write here your contact information. For example tel. number or e-mail" class="wpcf7-form-control wpcf7-text"></textarea>
                             </div>
@@ -126,7 +127,7 @@
                             <button type="submit" style="font-weight: 400"
                                     class="eltd-btn eltd-btn-medium eltd-btn-solid eltd-btn-custom-hover-bg eltd-btn-custom-border-hover eltd-btn-custom-hover-color single_add_to_cart_button alt"
                                     data-hover-bg-color="#333" data-hover-color="fff"
-                                    data-hover-border-color="#333"><span class="eltd-btn-text">Order</span>
+                                    data-hover-border-color="#333"><span class="eltd-btn-text"><%=__('Order')%></span>
                             </button>
 
                         </div>

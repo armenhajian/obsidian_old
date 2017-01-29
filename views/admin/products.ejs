@@ -52,7 +52,7 @@
                             <div class="col-md-10">
                                 <select id="category" name="category" class="form-control">
                                     <% categories.forEach(c =>{ %>
-                                    <option value="<%=c._id%>"><%= c.name%></option>
+                                    <option value="<%=c._id%>"><%= c['name_'+selectedLanguage]%></option>
                                     <% }) %>
                                 </select>
                             </div>
@@ -85,7 +85,7 @@
 
                             <div class="col-md-10">
                                 <input type="text" readonly="" class="form-control" placeholder="Browse...">
-                                <input type="file" name="avatar" id="inputFile" multiple="">
+                                <input type="file" name="avatar" id="inputFile">
                                 <div id="avatar"></div>
                             </div>
                         </div>

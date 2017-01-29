@@ -65,7 +65,7 @@
 </div>
 
 <include id="products" default><%- include('admin/products', {products:products, selectedLanguage:selectedLanguage}) %></include>
-<include id="categories"><%- include('admin/categories', {categories:categories}) %></include>
+<include id="categories"><%- include('admin/categories', {categories:categories, selectedLanguage:selectedLanguage}) %></include>
 <include id="sliders"><%- include('admin/sliders', {sliders:sliders}) %></include>
 <include id="languages"><%- include('admin/languages', {sliders:sliders}) %></include>
 <include id="translations"><%- include('admin/translations', {translations:translations}) %></include>

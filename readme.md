@@ -1,6 +1,7 @@
 7. facebook reviews widget api after "build your tour"----
 5. agenda from admin, pdf link ----------
 11.  about-ic 4 keter@ hanel
+12. make header logos ------
 Individual tour
 submit = Show on map
 
