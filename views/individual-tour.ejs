@@ -28,14 +28,7 @@
 
 <div class="eltd-content">
     <div class="eltd-meta">
-
-        <div class="eltd-seo-title">Create Your Trip – Travel</div>
-
-        <span id="eltd-page-id">8123</span>
-        <div class="eltd-body-classes">
-            page,page-id-8123,page-template-default,eltd-core-1.0,woly-ver-1.0,,eltd-smooth-page-transitions,eltd-mimic-ajax,eltd-grid-1200,eltd-blog-installed,eltd-main-style1,eltd-header-standard,eltd-sticky-header-on-scroll-down-up,eltd-default-mobile-header,eltd-sticky-up-mobile-header,eltd-menu-item-first-level-bg-color,eltd-dropdown-default,eltd-,eltd-header-standard-disable-transparency,wpb-js-composer
-            js-comp-ver-4.12,vc_responsive
-        </div>
+        <div class="eltd-seo-title"><%=__('Create Your Trip – Travel')%></div>
     </div>
     <div class="eltd-content-inner">
         <div class="eltd-title eltd-standard-type eltd-type-out- eltd-content-left-alignment eltd-animation-no"
@@ -47,13 +40,15 @@
                         <div class="eltd-title-subtitle-holder" style="">
                             <div class="eltd-title-subtitle-holder-inner">
                                 <h1 class="eltd-title-size-small">
-                                    <span>Create Your Trip</span>
+                                    <span><%=__('Create Your Trip')%></span>
                                 </h1>
                                 <div class="eltd-breadcrumbs-holder">
                                     <div class="eltd-breadcrumbs">
-                                        <div class="eltd-breadcrumbs-inner"><a href="/">Travel</a><span
-                                                    class="eltd-delimiter">&nbsp;/&nbsp;</span><span
-                                                    class="eltd-current">Create Your Trip</span></div>
+                                        <div class="eltd-breadcrumbs-inner">
+                                            <a href="/"><%=__('Travel')%></a>
+                                            <span class="eltd-delimiter">&nbsp;/&nbsp;</span>
+                                            <span class="eltd-current"><%=__('Create Your Trip')%></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -72,14 +67,14 @@
                         <div id="locationField">
                             <input id="autocomplete" class="wpcf7-form-control wpcf7-text"
                                    style="height: 30px;" type="text"
-                                   placeholder="Name of city" autocomplete="off"/>
+                                   placeholder="<%=__('NAME OF CITY')%>" autocomplete="off"/>
                         </div>
                         <div>
                             <input id="submit" class="wpcf7-form-control wpcf7-submit"
-                                   style="width: 100%; height: 30px; padding: 0; border-radius: 0;" type="submit"><br>
+                                       style="width: 100%; height: 30px; padding: 0; border-radius: 0;" type="submit" value="<%=__('SHOW ON MAP')%>"><br>
                             <input id="reset" class="wpcf7-form-control wpcf7-submit"
                                    style="margin-top: 3px; width: 100%; height: 30px; padding: 0; border-radius: 0;"
-                                   type="submit" value="Reset">
+                                   type="submit" value="<%=__('RESET')%>">
                         </div>
                         <div id="directions-panel"
                              style="max-width: 181px; max-height: 190px; overflow-x: auto; margin-top: 2px;"></div>
@@ -93,23 +88,23 @@
                         <div>
                             <input id="email" class="wpcf7-form-control wpcf7-text"
                                    style="width: 100%; padding: 8px; float: right; display: block;"
-                                   type="text" placeholder="Enter your email address">
+                                   type="text" placeholder="<%=__('ENTER YOUR EMAIL ADDRESS')%>">
                         </div>
                         <div>
                             <input id="order" class="wpcf7-form-control wpcf7-submit"
                                    style="width: 100%; padding: 8px; border-radius: 0; float: right; display: block;"
-                                   type="submit" value="Price Request">
+                                   type="submit" value="<%=__('PRICE REQUEST')%>">
                         </div>
                     </div>
                     <div class="cst_floating_right" style="width: 33%; margin-right: 2%">
                         <div>
                             <input class="wpcf7-form-control wpcf7-text"
-                                   placeholder="From Date"
+                                   placeholder="<%=__('FROM DATE')%>"
                                    type="text" id="from" name="from" style="position: relative; z-index: 100000; padding: 8px;">
                         </div>
                         <div>
                             <input class="wpcf7-form-control wpcf7-text"
-                                   placeholder="To Date"
+                                   placeholder="<%=__('TO DATE')%>"
                                    type="text" id="to" name="to" style="position: relative; z-index: 100000; padding: 8px;">
                         </div>
                     </div>
