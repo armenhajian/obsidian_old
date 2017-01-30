@@ -17,7 +17,7 @@ if (process.env.APP_CONFIG) {
     var hosting_config = JSON.parse(process.env.APP_CONFIG);
     console.log(hosting_config);
     var mongoPassword = "hjgJH675&%^%^%fgDT4";
-    var url = hosting_config.mongo.user + ":" + mongoPassword + "@" + hosting_config.mongo.hostString;
+    var url = 'mongodb://'+hosting_config.mongo.user + ":" + mongoPassword + "@" + hosting_config.mongo.hostString;
     console.log('url ',url);
     var db = mongojs(url);
 } else {
