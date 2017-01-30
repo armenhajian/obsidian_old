@@ -27,8 +27,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="151" lean-forward="false" selection-start-line="19" selection-start-column="151" selection-end-line="19" selection-end-column="151" />
+            <state relative-caret-position="360">
+              <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -340,7 +340,7 @@
       <workItem from="1483157818012" duration="4312000" />
       <workItem from="1483162432532" duration="11371000" />
       <workItem from="1485757549329" duration="2040000" />
-      <workItem from="1485774532443" duration="689000" />
+      <workItem from="1485774532443" duration="1501000" />
     </task>
     <task id="LOCAL-00001" summary="- search added&#10;- integration with 500px and vimeo&#10;- photos video gallery&#10;- style improvements&#10;- individual trip maker with map">
       <created>1482587794937</created>
@@ -440,11 +440,25 @@
       <option name="project" value="LOCAL" />
       <updated>1485757784459</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="- evennode mongo config">
+      <created>1485775228375</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1485775228375</updated>
+    </task>
+    <task id="LOCAL-00016" summary="- evennode mongo config">
+      <created>1485775384438</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1485775384438</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164477000" />
+    <option name="totallyTimeSpent" value="165289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="24" width="1920" height="1056" extended-state="6" />
@@ -856,8 +870,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="151" lean-forward="false" selection-start-line="19" selection-start-column="151" selection-end-line="19" selection-end-column="151" />
+        <state relative-caret-position="360">
+          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding />
         </state>
       </provider>
