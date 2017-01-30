@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9d92ecc-654b-4868-9a05-67e99c9594b1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/admin.ejs" afterPath="$PROJECT_DIR$/views/admin.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,12 +24,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="140" lean-forward="false" selection-start-line="21" selection-start-column="140" selection-end-line="21" selection-end-column="140" />
+            <state relative-caret-position="342">
+              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/admin.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="94" column="41" lean-forward="false" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+              <folding>
+                <element signature="e#4618#5627#0#HTML" expanded="false" />
+                <element signature="e#5660#6084#0#HTML" expanded="false" />
+                <element signature="e#6379#6683#0#HTML" expanded="false" />
+                <element signature="e#6734#6973#0#HTML" expanded="false" />
+                <element signature="e#7022#7258#0#HTML" expanded="false" />
+                <marker date="1485788097177" expanded="true" signature="4812:4827" ph="..." />
+                <marker date="1485788097177" expanded="true" signature="5124:5139" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,7 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>description</find>
       <find>tour.name</find>
       <find>slice</find>
       <find>category</find>
@@ -76,6 +93,7 @@
       <find>cookies</find>
       <find>cookie</find>
       <find>cooki</find>
+      <find>data-open</find>
     </findStrings>
     <replaceStrings>
       <replace>/themes</replace>
@@ -145,7 +163,6 @@
         <option value="$PROJECT_DIR$/views/navigation/normal.ejs" />
         <option value="$PROJECT_DIR$/i18n/Abkhaz.json" />
         <option value="$PROJECT_DIR$/views/admin/pages.ejs" />
-        <option value="$PROJECT_DIR$/views/admin.ejs" />
         <option value="$PROJECT_DIR$/views/admin/products.ejs" />
         <option value="$PROJECT_DIR$/i18n/Afrikaans.json" />
         <option value="$PROJECT_DIR$/views/header.ejs" />
@@ -153,6 +170,7 @@
         <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/views/admin/translations.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/admin.ejs" />
       </list>
     </option>
   </component>
@@ -205,6 +223,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="obsidian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obsidian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obsidian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obsidian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obsidian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -340,7 +390,7 @@
       <workItem from="1483157818012" duration="4312000" />
       <workItem from="1483162432532" duration="11371000" />
       <workItem from="1485757549329" duration="2040000" />
-      <workItem from="1485774532443" duration="3403000" />
+      <workItem from="1485774532443" duration="5728000" />
     </task>
     <task id="LOCAL-00001" summary="- search added&#10;- integration with 500px and vimeo&#10;- photos video gallery&#10;- style improvements&#10;- individual trip maker with map">
       <created>1482587794937</created>
@@ -482,11 +532,25 @@
       <option name="project" value="LOCAL" />
       <updated>1485779150285</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- evennode mongo config">
+      <created>1485781854389</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1485781854389</updated>
+    </task>
+    <task id="LOCAL-00022" summary="- evennode mongo config">
+      <created>1485782415393</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1485782415393</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167191000" />
+    <option name="totallyTimeSpent" value="169516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="24" width="1920" height="1056" extended-state="6" />
@@ -861,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="185" column="9" lean-forward="false" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -898,9 +955,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="140" lean-forward="false" selection-start-line="21" selection-start-column="140" selection-end-line="21" selection-end-column="140" />
+        <state relative-caret-position="342">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="94" column="41" lean-forward="false" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+          <folding>
+            <element signature="e#4618#5627#0#HTML" expanded="false" />
+            <element signature="e#5660#6084#0#HTML" expanded="false" />
+            <element signature="e#6379#6683#0#HTML" expanded="false" />
+            <element signature="e#6734#6973#0#HTML" expanded="false" />
+            <element signature="e#7022#7258#0#HTML" expanded="false" />
+            <marker date="1485788097177" expanded="true" signature="4812:4827" ph="..." />
+            <marker date="1485788097177" expanded="true" signature="5124:5139" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

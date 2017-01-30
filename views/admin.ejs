@@ -84,14 +84,21 @@
     }())
 
 
-    $("a[data-open]").on('click', function () {
+    $("a[data-open]").on('click', dataOpen);
+
+//    $(window).on('hashchange',function(){
+//        dataOpen();
+//        $('h1').text(location.hash.slice(1));
+//    });
+    function dataOpen(e) {
+        e.preventDefault();
+        window.location.hash = this.hash;
         $("include").hide();
         var self = $(this);
         $("a[data-open]").parent().removeClass('active');
         self.parent().addClass('active');
         $("#" + self.data('open')).show();
-    });
-
+    }
     function editItem(product) {
         $('#remove').show();
         $.each(product, function(k, v){
