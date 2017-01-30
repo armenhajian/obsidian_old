@@ -15,6 +15,7 @@ var fs = require('fs');
 if (process.env.APP_CONFIG) {
     //prod:
     var hosting_config = JSON.parse(process.env.APP_CONFIG);
+    console.log(hosting_config);
     var mongoPassword = "hjgJH675&%^%^%fgDT4";
     var db = mongojs("mongodb://" + hosting_config.mongo.user + ":" + mongoPassword + "@" + hosting_config.mongo.hostString);
 } else {
