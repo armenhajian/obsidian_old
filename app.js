@@ -15,11 +15,11 @@ var fs = require('fs');
 if (process.env.APP_CONFIG) {
     //prod:
     var hosting_config = JSON.parse(process.env.APP_CONFIG);
-    console.log(hosting_config);
-    var mongoPassword = "hjgJH675&%^%^%fgDT4";
-    var url = 'mongodb://'+hosting_config.mongo.user + ":" + mongoPassword + "@" + hosting_config.mongo.hostString;
+    console.log('config ',hosting_config);
+    var mongoPassword = "hjgJH675";
+    var url = hosting_config.mongo.user + ":" + mongoPassword + "@" + hosting_config.mongo.hostString;
     console.log('url ',url);
-    var db = mongojs('5ef609ba77950b0bc7eff2b89f6267e5:hjgJH675&%^%^%fgDT4@32-1a.mongo.evennode.com:27017/5ef609ba77950b0bc7eff2b89f6267e5');
+    var db = mongojs(url);
 } else {
     //local:
     var db = mongojs('obsidian');
