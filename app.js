@@ -19,7 +19,7 @@ if (process.env.APP_CONFIG) {
     var mongoPassword = "hjgJH675&%^%^%fgDT4";
     var url = 'mongodb://'+hosting_config.mongo.user + ":" + mongoPassword + "@" + hosting_config.mongo.hostString;
     console.log('url ',url);
-    var db = mongojs(url);
+    var db = mongojs('mongodb://5ef609ba77950b0bc7eff2b89f6267e5:hjgJH675&%^%^%fgDT4@32-1a.mongo.evennode.com:27017,32-1b.mongo.evennode.com:27017/5ef609ba77950b0bc7eff2b89f6267e5');
 } else {
     //local:
     var db = mongojs('obsidian');
