@@ -86,10 +86,6 @@
 
     $("a[data-open]").on('click', dataOpen);
 
-//    $(window).on('hashchange',function(){
-//        dataOpen();
-//        $('h1').text(location.hash.slice(1));
-//    });
     function dataOpen(e) {
         e.preventDefault();
         window.location.hash = this.hash;
